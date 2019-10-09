@@ -1,14 +1,163 @@
-#mainContent {
-  /* border: 1px red solid; */
-  /* background-color: rgb(255,230,230); */
+.mainphoto{
+     padding:0px;
+     display:block;
+     margin-left: 0px;
+     margin-right: 0px;
+     height: 40%;
+     width: 100%;
+    margin top:-20px;
+ }
+#bottom{
+    margin-bottom: 150px;
+}
+.middle{
+    margin-top: -45px;
+    background-color: #4C1113;
+    color: white;
+    padding-top: -70px;
+    width: 75%;
+    margin-bottom: 20px;
+}
+#wl1,#wl2,#wl3{
+    margin: 30px;
+    background-color: #4C1113;
+    color: white;
+    width: 300px;
+    height:2%;
+    padding: 30px;
+    border-radius: 10px;
+    word-wrap:break-word;
+}
+
+ .cont1{
+    font-size: 120%;
+    margin-bottom: 0px;
+}
+
+.btn:hover{
+    background-color: burlywood;
+}
+
+#mid1, #mid2{
+    width:430px;
+    height:540px;
+    margin: 20px;
+}
+#mid1{
+    margin-right: 0px;
+}
+
+h2,h4{
+    font-weight: bolder;
+}
+#back{
+    background-color:magenta;
+}
+#left{
+    margin-left: 30px;
+}
+#up{
+    margin-bottom: 40px;
+}
+.row-fluid{
+    margin: 0px;
+}
+
+header {
+    background-color: #4C1113;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.container {
+    padding-bottom: 120px;
+}
+
+#header {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: white;
+    font-family: "Franklin Gothic Book";
+    font-size: 30px;
+}
+
+#img-header{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    height: 75px;
+    width: 75px;
+}
+
+.navbar-default{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.footer{
+    margin-top: 80px;
+    background-color: #4C1113;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    color: white;
+    text-align: center;
+    margin-left: 0px;
+}
+
+.link {
+    color: #4C1113;
+    font-weight: bold;
+}
+
+/*Crediting the person who created the sort table: http://tristen.ca/tablesort/demo/*/
+
+th[role=columnheader]:not(.no-sort) {
+	cursor: pointer;
+}
+
+th[role=columnheader]:not(.no-sort):after {
+	content: '';
+	float: right;
+	margin-top: 7px;
+	border-width: 0 4px 4px;
+	border-style: solid;
+	border-color: #404040 transparent;
+	visibility: hidden;
+	opacity: 0;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+th[aria-sort=ascending]:not(.no-sort):after {
+	border-bottom: none;
+	border-width: 4px 4px 0;
+}
+
+th[aria-sort]:not(.no-sort):after {
+	visibility: visible;
+	opacity: 0.4;
+}
+
+th[role=columnheader]:not(.no-sort):hover:after {
+	visibility: visible;
+	opacity: 1;
 }
 
 .queueView {
-  border: 2px black solid;
+  border: 1px blue dotted;
   background-color: rgb(230,230,230);
 }
 
-.patientWaiting {
+.userWaiting {
   background-color: white;
   margin: 6px;
   padding: 6px;
@@ -19,17 +168,6 @@
   font-weight: bold;
 }
 
-.highPriority {
-  border-left-color: red;
-  border-left-width: 6px;
-}
-
-.mediumPriority {
-  border-left-color: orange;
-  border-left-width: 6px;
-}
-
-.lowPriority {
-  border-left-color: blue;
-  border-left-width: 6px;
+.pclass {
+  border-left: 4px solid red;
 }
