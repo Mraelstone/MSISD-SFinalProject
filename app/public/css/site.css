@@ -6,7 +6,22 @@
      height: 40%;
      width: 100%;
     margin top:-20px;
+
  }
+
+.mainphotoblur{
+  padding:0px;
+  display:block;
+  margin-left: 0px;
+  margin-right: 0px;
+  height: 40%;
+  width: 100%;
+ margin top:-20px;
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
 #bottom{
     margin-bottom: 150px;
 }
@@ -171,3 +186,8 @@ th[role=columnheader]:not(.no-sort):hover:after {
 .pclass {
   border-left: 4px solid red;
 }
+
+/*body,html {
+    background-image: url("../img/fireDept.jpg");
+  height: 100%;
+}*/
