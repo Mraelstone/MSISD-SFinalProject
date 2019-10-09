@@ -1,163 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>My Page Title</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/site.css">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Compiled and minified CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--jQuery CDN-->
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+    <!--Compiled and minified JavaScript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Register<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Page1</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Page2</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-
-  <div class="container">
-    <div class="row">
-      <div id="mainContent" class="col-md">
-        <div id="patientRecordsApp">
-          <form @submit.prevent="handleSubmit">
-            <div class="form-group row">
-              <label for="inputFirstName" class="col-sm-2 col-form-label">First Name</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" v-model="recordPatient.firstName">
-              </div>
+    <div class="container-fluid">
+        <header class="row">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2">
+                <img id="img-header" src="img/oconeeLogo.png" alt="Oconee Logo">
             </div>
 
-            <div class="form-group row">
-              <label for="inputLastName" class="col-sm-2 col-form-label">Last Name</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" v-model="recordPatient.lastName">
-              </div>
+            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-4">
+                <h1 id="header">Oconee County Fire Department</h1>
             </div>
+<!-- navbar-default-->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 nav-center">
+                <nav class="navbar navbar-default">
+                    <div class="navbar-header">
+                        <button class="navbar-toggle" data-toggle="collapse" data-target="#myMenu">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
 
-            <div class="form-group row">
-              <label for="inputDob" class="col-sm-2 col-form-label">DOB</label>
-              <div class="col-sm-10">
-                <input type="date" class="form-control" id="inputDob" placeholder="2001-12-13" v-model="recordPatient.dob">
-              </div>
+                    <div class="collapse navbar-collapse" id="myMenu">
+                        <ul class="nav navbar-nav">
+                            <li><a href="index.html">Home</a></li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us</a>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Our Team</a>
+                            </li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Expired List</a></li>
+                                    <li><a href="#">Certifications</a></li>
+                                    <li><a href="#">By Station & Radio #</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contacts Us</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login/Register</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
             </div>
-
-            <div class="form-group row">
-              <label for="inputSexAtBirth" class="col-sm-2 col-form-label">Sex At Birth</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="inputSexAtBirth" placeholder="M|F" v-model="recordPatient.sexAtBirth">
-              </div>
-            </div>
-
-
-            <div class="form-group row">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">Create Patient Record</button>
-              </div>
-            </div>
-          </form>
-
-          <table class="table table-sm table-hover">
-            <thead>
-              <tr>
-                <th>GUID</th>
-                <th>First</th>
-                <th>Last</th>
-                <th>DOB</th>
-                <th>SAB</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="p in patients" @click="handleRowClick(p)">
-                <td>{{ p.patientGuid }}</td>
-                <td>{{ p.firstName }}</td>
-                <td>{{ p.lastName }}</td>
-                <td>{{ p.dob }}</td>
-                <td>{{ p.sexAtBirth }}</td>
-              </tr>
-            </tbody>
-          </table>
-
-        </div>
-
-        <div id="patientTriageApp">
-          <noscript>This page requires Javascript!!</noscript>
-          <form @submit.prevent="handleSubmit">
-            <div class="row">
-              <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="triageFirstName" placeholder="First Name" v-model="patient.firstName" readonly>
-              </div>
-              <div class="form-group col-md-6">
-                <input type="text" class="form-control" id="triageLastName" placeholder="Last Name" v-model="patient.lastName" readonly>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="form-group col-md-4">
-                <input type="date" class="form-control" id="triageDob" placeholder="2001-12-13" v-model="patient.dob" readonly>
-              </div>
-              <div class="col"></div>
-              <div class="form-group col-md-2">
-                <input type="text" class="form-control" id="triageSexAtBirth" placeholder="M|F" v-model="patient.sexAtBirth" readonly>
-              </div>
-            </div>
-
-
-            <div class="form-group row">
-              <label for="triageDescription" class="col-sm-2 col-form-label">Reason for Visit</label>
-              <div class="col-sm-10">
-                <textarea class="form-control" id="triageDescription" placeholder="Symptoms; reason for visit" v-model="patient.visitDescription"></textarea>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="triagePriority" class="col-sm-2 col-form-label">Priority</label>
-              <div class="col-sm-10">
-                <select class="form-control" id="triagePriority" v-model="patient.priority" required>
-                  <option value="low">Low</option>
-                  <option value="medium">Medium</option>
-                  <option value="high">High</option>
-                </select>
-              </div>
-            </div>
-
-
-            <div class="form-group row">
-              <div class="col-sm-10">
-                <button type="submit" class="btn btn-primary">Admit Patient</button>
-              </div>
-            </div>
-          </form>
-        </div>
-
-      </div>
-
-      <div id="patientWaitingApp" class="col-md-3 queueView">
-        <div class="patient patientWaiting"
-        :class="patient.priority + 'Priority'"
-        v-for="patient in patients">
-          Arrival date<br>
-          <span class="patientName">{{ patient.lastName }}</span>,
-          <span class="patientName">{{ patient.firstName }}</span><br>
-          {{ patient.sexAtBirth }} {{ patient.dob }}
-        </div>
-      </div>
+        </header>
     </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/waiting.app.js"></script>
-  <script src="js/record.app.js"></script>
-  <script src="js/triage.app.js"></script>
+
+
+    <div class="container-fluid" id="bottom">
+       <main class="row">
+
+        <img class= "mainphoto" id="mainphoto" name="mainphoto" src="img/fireDept.jpg" vertical-align="right" >
+
+<div class="col-xs-12 col-sm-12 col-md-8 col-md-push-4 col-lg-8 col-lg-push-4" id="bir">
+        <div class="middle col-xs-12">
+        <h2 style="font-size:3.9vw;">Hello from Oconee County Fire Department!</h2>
+        </div>
+
+        <div class="cont1 col-xs-12">
+        <p>We are excited that our students have the opportunity to travel abroad and experience the wonders of a new country while getting course credit. In the past year, over 500 students at IU made the decision to study abroad in places such as South Korea, Thailand, Australia, Wales, Germany, Italy, and many more! </p>
+
+        <p>A global business education is required for today’s executives. That is why we offer so many international programs at Kelley. You can earn credit and customize your experience to fit your academic and career goals. </p>
+
+        <p>In addition to study abroad, the second-year Global Foundations Core teaches you to analyze and interpret the influences that drive the global economy. Your experiences abroad will enhance and build on the global business fundamentals learned in these classes. </p>
+
+        <h2>Why study abroad?</h2>
+        </div>
+
+        <br>
+       <br>
+        <br>
+<div class="d-md-flex h-md-100">
+<!-- First Half -->
+    <div class="text-white d-md-flex h-100 p-5" id="left">
+        <div class="logoarea pt-5 pb-5">
+            <div id="up">
+            <figure>
+            <img src="images/fun.jpg" name="fun" class="fun img-responsive" id="fun">
+            <h4>61% of Kelley Students Participate</h4>
+            <figcaption> The majority of Kelley students chose to study abroad because of the amazing programs we offer. At Kelley, what you learn outside the classroom is just as important as what you learn in it. Adventures and experiences are key components to your Kelley education.
+            The study abroad program enables students to be able to get out of the classroom and out of their comfort zone in order for them to get the most of their years at Kelley. We want to produce the best future employees as possible and a deeper understanding of business not only the United States but in other countries, we find is very important. </figcaption>
+            </figure>
+            </div>
+           <br>
+           <br>
+           <div>
+            <figure>
+           <img src="images/morefun.jpg" name="morefun" id="morefun" class="img-responsive">
+           <figcaption>
+            <h4>Explore a culture, earn credit, and get experience</h4>
+           IU offers international programs in nearly every program of study. In addition to learning about other cultures and practicing your language skills, overseas study can help you make progress toward your degree and get career-related experience. Complete an internship. Attend a conference. Do research. Advise entrepreneurs in emerging economies. Explore media and culture in China. The possibilities are virtually endless.
+            </figcaption>
+            <br>
+            <button class="btn btn-default">Learn More</button>
+            </figure>
+        </div>
+          </div>
+          </div>
+
+        </div>
+    </div>
+
+<!-- Second Half -->
+
+<div class="col-xs-12 col-sm-12 col-md-4 col-md-pull-8  col-lg-4 col-lg-pull-8">
+    <div class="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
+
+        <div class="row-fluid" >
+         <div class="well col-xs-12" id="wl1">
+       <h4>Advising</h4>
+       <p>Talk to one of our advisors about fitting an experience into your academic plan. Stop by Hodge Hall 3038 during our drop-in hours or schedule an appointment online by searching <q>Kelley Study Abroad</q>. You can also email ksabroad@iu.edu or call 812-856-0499 with inquiries.</p>
+        <br>
+       <button class="btn btn-default">Make an appointment</button>
+        </div>
+        <div class="well col-xs-12" id="wl3">
+       <h4>Study abroad: choose among 300+ programs</h4>
+       <p>Your most eye-opening global opportunity is study abroad, which immerses you in another culture. In addition to taking classes, you can get international work experience by conducting research, completing an internship, or volunteering for a nongovernmental organization. </p>
+       <br>
+       <button class="btn btn-default">Learn More</button>
+       </div>
+       <div class="well col-xs-12" id= "wl2">
+       <h4>Come along for the (virtual) journey</h4>
+       <p>See what it’s like to explore the world and gain international business experience. </p>
+        <br>
+        <br>
+        <br>
+        <a href="https://twitter.com/ksbstudyabroad" target="_blank" type="button"><img src="images/twitter.png" width="30px">@KSBStudyAbroad</a>
+        <br>
+        <br>
+        <a href="https://instagram.com/ksbstudyabroad" target="_blank" type="button"><img src="images/instagram.png" width="30px">@KSBStudyAbroad</a> </div>
+       </div>
+           </div>
+    </div>
+        </main>
+   </div>
+    <div class="container-fluid">
+        <footer class="row footer">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <p>Copyright &#169; 2019 The Trustees of Oconee County Fire Department</p>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>
