@@ -6,7 +6,22 @@
      height: 40%;
      width: 100%;
     margin top:-20px;
+
  }
+
+.mainphotoblur{
+  padding:0px;
+  display:block;
+  margin-left: 0px;
+  margin-right: 0px;
+  height: 40%;
+  width: 100%;
+ margin top:-20px;
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+
 #bottom{
     margin-bottom: 150px;
 }
@@ -170,4 +185,90 @@ th[role=columnheader]:not(.no-sort):hover:after {
 
 .pclass {
   border-left: 4px solid red;
+}
+
+/*body,html {
+    background-image: url("../img/fireDept.jpg");
+  height: 100%;
+}*/
+
+.how-section1{
+    margin-top:-15%;
+    padding: 10%;
+}
+.how-section1 h4{
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 30px;
+}
+.how-section1 .subheading{
+    color: #000077;
+    font-size: 20px;
+}
+.how-section1 .row
+{
+    margin-top: 10%;
+}
+.how-img
+{
+    text-align: center;
+}
+.how-img img{
+    width: 40%;
+}
+
+
+
+body{
+    background: -webkit-linear-gradient(left, #eeeeee, #eeeeee);
+}
+.contact-form{
+    background: #fff;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    width: 70%;
+}
+.contact-form .form-control{
+    border-radius:1rem;
+}
+.contact-image{
+    text-align: center;
+}
+.contact-image img{
+    border-radius: 6rem;
+    width: 11%;
+    margin-top: -3%;
+    transform: rotate(29deg);
+}
+.contact-form form{
+    padding: 14%;
+}
+.contact-form form .row{
+    margin-bottom: -7%;
+}
+.contact-form h3{
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: #0062cc;
+}
+.contact-form .btnContact {
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #dc3545;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+.btnContactSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #0062cc;
+    border: none;
+    cursor: pointer;
 }
