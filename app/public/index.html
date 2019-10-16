@@ -1,162 +1,150 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
     <title>Home</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!--Compiled and minified CSS-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!--jQuery CDN-->
-    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-
-    <!--Compiled and minified JavaScript-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/site.css">
 </head>
 
 <body>
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <div class="container-fluid">
         <header class="row">
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2">
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2">
                 <img id="img-header" src="img/oconeeLogo.png" alt="Oconee Logo">
             </div>
 
-            <div class="col-xs-12 col-sm-8 col-md-8 col-lg-4">
+            <div class="col-xs-6 col-sm-8 col-md-8 col-lg-10">
                 <h1 id="header">Oconee County Fire Department</h1>
             </div>
-<!-- navbar-default-->
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 nav-center">
-                <nav class="navbar navbar-default">
-                    <div class="navbar-header">
-                        <button class="navbar-toggle" data-toggle="collapse" data-target="#myMenu">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
+          </header>
+        </div>
+            <div>
+              <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                  <a class="navbar-brand" href="index.html">OCFD</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
 
-                    <div class="collapse navbar-collapse" id="myMenu">
-                        <ul class="nav navbar-nav">
-                            <li><a href="index.html">Home</a></li>
-
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">About Us</a>
-                            </li>
-
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Our Team</a>
-                            </li>
-
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Expired List</a></li>
-                                    <li><a href="#">Certifications</a></li>
-                                    <li><a href="#">By Station & Radio #</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contacts Us</a>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login/Register</a>
-                            </li>
-                        </ul>
-                    </div>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="aboutus.html">About Us</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="team.html">Our Team</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Reports
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <a class="dropdown-item" href="#">Expired List</a>
+                          <a class="dropdown-item" href="#">Certifications</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">By Station & Radio #</a>
+                        </div>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login/Register</a>
+                      </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                  </div>
                 </nav>
             </div>
-        </header>
-    </div>
 
 
-    <div class="container-fluid" id="bottom">
+
+            <!-- Jumbotron -->
+                <div class="card" style="background-image: url(img/fireDept.jpg">
+                  <div class="text-white text-center rgba-stylish-strong py-5 px-4">
+                    <div class="py-5">
+
+                      <!-- Content -->
+                      <h2 class="card-title h2">Hello from Oconee County Fire Department!</h2>
+                      <p class="mb-4 pb-2 px-md-5 mx-md-5">Lorem ipsum dolor sit amet</p>
+                      <a href="aboutus.html" class="btn btn-danger"><i class="fa fa-clone left"></i>Learn More</a>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- News jumbotron -->
+                <div class="jumbotron text-center hoverable p-4">
+
+                  <!-- Grid row -->
+                  <div class="row">
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 offset-md-1 mx-3 my-3">
+
+                      <!-- Featured image -->
+                      <div class="view overlay">
+                        <img src="img/firefighting1.jpg" class="img-fluid" alt="News">
+                        <a>
+                          <div class="mask rgba-white-slight"></div>
+                        </a>
+                      </div>
+
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-7 text-md-left ml-3 mt-3">
+
+                      <!-- Excerpt -->
+                      <a href="#!" class="green-text">
+                        <h6 class="h6 pb-1"><i class="fas fa-desktop pr-1"></i> News</h6>
+                      </a>
+
+                      <h4 class="h4 mb-4">This is title of the News</h4>
+
+                      <p class="font-weight-normal">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque, totam
+                        rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+                        dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</p>
+                      <p class="font-weight-normal">by <a><strong>Carine Fox</strong></a>, 19/08/2016</p>
+
+                      <a class="btn btn-success">Read more</a>
+
+                    </div>
+                    <!-- Grid column -->
+
+                  </div>
+                  <!-- Grid row -->
+
+                </div>
+                <!-- News jumbotron -->
+
+    <!--  <div class="container-fluid" id="bottom">
        <main class="row">
-
-        <img class= "mainphoto" id="mainphoto" name="mainphoto" src="img/fireDept.jpg" vertical-align="right" >
-
-<div class="col-xs-12 col-sm-12 col-md-8 col-md-push-4 col-lg-8 col-lg-push-4" id="bir">
+        <img class= "mainphoto img-fluid" id="mainphoto img-fluid" name="mainphoto" src="img/fireDept.jpg" vertical-align="right" >
+<div class="col-xs-12 col-sm-12 col-md-8 col-md-4 col-lg-8 col-lg-4" id="bir">
         <div class="middle col-xs-12">
         <h2 style="font-size:3.9vw;">Hello from Oconee County Fire Department!</h2>
         </div>
-
-        <div class="cont1 col-xs-12">
-        <p>We are excited that our students have the opportunity to travel abroad and experience the wonders of a new country while getting course credit. In the past year, over 500 students at IU made the decision to study abroad in places such as South Korea, Thailand, Australia, Wales, Germany, Italy, and many more! </p>
-
-        <p>A global business education is required for today’s executives. That is why we offer so many international programs at Kelley. You can earn credit and customize your experience to fit your academic and career goals. </p>
-
-        <p>In addition to study abroad, the second-year Global Foundations Core teaches you to analyze and interpret the influences that drive the global economy. Your experiences abroad will enhance and build on the global business fundamentals learned in these classes. </p>
-
-        <h2>Why study abroad?</h2>
-        </div>
-
-        <br>
-       <br>
-        <br>
-<div class="d-md-flex h-md-100">
-<!-- First Half -->
-    <div class="text-white d-md-flex h-100 p-5" id="left">
-        <div class="logoarea pt-5 pb-5">
-            <div id="up">
-            <figure>
-            <img src="images/fun.jpg" name="fun" class="fun img-responsive" id="fun">
-            <h4>61% of Kelley Students Participate</h4>
-            <figcaption> The majority of Kelley students chose to study abroad because of the amazing programs we offer. At Kelley, what you learn outside the classroom is just as important as what you learn in it. Adventures and experiences are key components to your Kelley education.
-            The study abroad program enables students to be able to get out of the classroom and out of their comfort zone in order for them to get the most of their years at Kelley. We want to produce the best future employees as possible and a deeper understanding of business not only the United States but in other countries, we find is very important. </figcaption>
-            </figure>
-            </div>
-           <br>
-           <br>
-           <div>
-            <figure>
-           <img src="images/morefun.jpg" name="morefun" id="morefun" class="img-responsive">
-           <figcaption>
-            <h4>Explore a culture, earn credit, and get experience</h4>
-           IU offers international programs in nearly every program of study. In addition to learning about other cultures and practicing your language skills, overseas study can help you make progress toward your degree and get career-related experience. Complete an internship. Attend a conference. Do research. Advise entrepreneurs in emerging economies. Explore media and culture in China. The possibilities are virtually endless.
-            </figcaption>
-            <br>
-            <button class="btn btn-default">Learn More</button>
-            </figure>
-        </div>
-          </div>
-          </div>
-
-        </div>
-    </div>
-
-<!-- Second Half -->
-
-<div class="col-xs-12 col-sm-12 col-md-4 col-md-pull-8  col-lg-4 col-lg-pull-8">
-    <div class="d-md-flex align-items-center h-md-100 p-5 justify-content-center">
-
-        <div class="row-fluid" >
-         <div class="well col-xs-12" id="wl1">
-       <h4>Advising</h4>
-       <p>Talk to one of our advisors about fitting an experience into your academic plan. Stop by Hodge Hall 3038 during our drop-in hours or schedule an appointment online by searching <q>Kelley Study Abroad</q>. You can also email ksabroad@iu.edu or call 812-856-0499 with inquiries.</p>
-        <br>
-       <button class="btn btn-default">Make an appointment</button>
-        </div>
-        <div class="well col-xs-12" id="wl3">
-       <h4>Study abroad: choose among 300+ programs</h4>
-       <p>Your most eye-opening global opportunity is study abroad, which immerses you in another culture. In addition to taking classes, you can get international work experience by conducting research, completing an internship, or volunteering for a nongovernmental organization. </p>
-       <br>
-       <button class="btn btn-default">Learn More</button>
-       </div>
-       <div class="well col-xs-12" id= "wl2">
-       <h4>Come along for the (virtual) journey</h4>
-       <p>See what it’s like to explore the world and gain international business experience. </p>
-        <br>
-        <br>
-        <br>
-        <a href="https://twitter.com/ksbstudyabroad" target="_blank" type="button"><img src="images/twitter.png" width="30px">@KSBStudyAbroad</a>
-        <br>
-        <br>
-        <a href="https://instagram.com/ksbstudyabroad" target="_blank" type="button"><img src="images/instagram.png" width="30px">@KSBStudyAbroad</a> </div>
-       </div>
-           </div>
-    </div>
+      </div>
         </main>
-   </div>
+   </div> -->
+
     <div class="container-fluid">
         <footer class="row footer">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
