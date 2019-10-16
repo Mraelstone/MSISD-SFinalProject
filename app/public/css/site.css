@@ -27,7 +27,7 @@
 }
 .middle{
     margin-top: -45px;
-    background-color: #4C1113;
+    background-color: #A9A9A9;
     color: white;
     padding-top: -70px;
     width: 75%;
@@ -35,7 +35,7 @@
 }
 #wl1,#wl2,#wl3{
     margin: 30px;
-    background-color: #4C1113;
+    background-color: #A9A9A9;
     color: white;
     width: 300px;
     height:2%;
@@ -79,12 +79,12 @@ h2,h4{
 }
 
 header {
-    background-color: #4C1113;
+    background-color: #A9A9A9;
 }
 
 a {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .container {
@@ -94,7 +94,7 @@ a {
 #header {
     margin-top: 40px;
     margin-bottom: 20px;
-    color: white;
+    color: black;
     font-family: "Franklin Gothic Book";
     font-size: 30px;
 }
@@ -109,11 +109,12 @@ a {
 .navbar-default{
     margin-top: 30px;
     margin-bottom: 30px;
+    color: white;
 }
 
 .footer{
     margin-top: 80px;
-    background-color: #4C1113;
+    background-color: #A9A9A9;
     position: fixed;
     left: 0;
     right: 0;
@@ -121,13 +122,13 @@ a {
     height: 50px;
     width: 100%;
     padding: 10px;
-    color: white;
+    color: black;
     text-align: center;
     margin-left: 0px;
 }
 
 .link {
-    color: #4C1113;
+    color: #A9A9A9;
     font-weight: bold;
 }
 
@@ -191,3 +192,92 @@ th[role=columnheader]:not(.no-sort):hover:after {
     background-image: url("../img/fireDept.jpg");
   height: 100%;
 }*/
+<<<<<<< HEAD:app/public/css/style.css
+=======
+
+.how-section1{
+    margin-top:-15%;
+    padding: 10%;
+}
+.how-section1 h4{
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 30px;
+}
+.how-section1 .subheading{
+    color: #000077;
+    font-size: 20px;
+}
+.how-section1 .row
+{
+    margin-top: 10%;
+}
+.how-img
+{
+    text-align: center;
+}
+.how-img img{
+    width: 40%;
+}
+
+
+
+body{
+    background: -webkit-linear-gradient(left, #eeeeee, #eeeeee);
+}
+.contact-form{
+    background: #fff;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    width: 70%;
+}
+.contact-form .form-control{
+    border-radius:1rem;
+}
+.contact-image{
+    text-align: center;
+}
+.contact-image img{
+    border-radius: 6rem;
+    width: 11%;
+    margin-top: -3%;
+    transform: rotate(29deg);
+}
+.contact-form form{
+    padding: 14%;
+}
+.contact-form form .row{
+    margin-bottom: -7%;
+}
+.contact-form h3{
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: #b30000;
+}
+.contact-form .btnContact {
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #b30000;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+.btnContactSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #b30000;
+    border: none;
+    cursor: pointer;
+}
+
+.py-5 h3{
+    text-align: center;
+    color: #b30000;
+}
+>>>>>>> master:app/public/css/site.css
