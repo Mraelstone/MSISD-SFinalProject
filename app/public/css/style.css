@@ -1,9 +1,9 @@
-.mainphoto{
+#mainphoto{
      padding:0px;
      display:block;
      margin-left: 0px;
      margin-right: 0px;
-     height: 40%;
+     height: 100%;
      width: 100%;
     margin top:-20px;
  }
@@ -115,7 +115,6 @@ a {
     color: #4C1113;
     font-weight: bold;
 }
-
 /*Crediting the person who created the sort table: http://tristen.ca/tablesort/demo/*/
 
 th[role=columnheader]:not(.no-sort) {
