@@ -73,7 +73,7 @@
                 </nav>
             </div>
 
-            <div class="container py-5">
+            <div class="container py-5" id="memberRecordsApp">
               <div class="row">
                 <div class="col-md-12">
               <!--    <h2 class="text-center mb-5">Bootstrap 4 Forms</h2> -->
@@ -83,18 +83,18 @@
                             <h3 class="mb-0">Oconee County Fire Department Members</h3>
                         </div>
                         <div class="card-body">
-                            <form class="form" role="form" autocomplete="off">
+                            <form class="form" role="form" autocomplete="off" @submit.prevent="handleSubmit">
                               <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputMember">First Name</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.firstName">
                                     <span id="helpMember" class="form-text small text-muted">
                                             Enter First Name.
                                         </span>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="inputMember">Last Name</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.lastName">
                                     <span id="helpMember" class="form-text small text-muted">
                                             Enter Last Name.
                                         </span>
@@ -104,14 +104,14 @@
                               <div class="form-row">
                                 <div class="form-group col-md-3">
                                     <label for="inputMember">Sex</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.sexAtBirth">
                                     <span id="helpMember" class="form-text small text-muted">
                                             Enter Sex at Birth.
                                         </span>
                                 </div>
                                 <div class="form-group col-md-9">
                                     <label for="inputMember">Street</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.addrStreet">
                                     <span id="helpMember" class="form-text small text-muted">
                                             Enter Street Address.
                                         </span>
@@ -121,21 +121,21 @@
                               <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="inputMember">City</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.addrCity">
                                     <span id="helpMember" class="form-text small text-muted">
                                             Enter City Name.
                                         </span>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputMember">State</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.addrState">
                                     <span id="helpMember" class="form-text small text-muted">
                                             Enter State Name.
                                         </span>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputMember">Zipcode</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.addrZipcode">
                                     <span id="helpMember" class="form-text small text-muted">
                                             Enter Zip code.
                                         </span>
@@ -145,14 +145,14 @@
                               <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="inputMember">Work Phone</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.workPhone">
                                     <span id="helpMember" class="form-text small text-muted">
                                             Enter the work phone number.
                                         </span>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="inputMember">Work Phone</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
+                                    <label for="inputMember">Mobile Phone</label>
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.mobilePhone">
                                     <span id="helpMember" class="form-text small text-muted">
                                             Enter the mobile phone number.
                                         </span>
@@ -162,21 +162,21 @@
                               <div class="form-row">
                                 <div class="form-group col-md-4">
                                     <label for="inputMember">Radio#</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.radioNumber">
                                     <span id="helpMember" class="form-text small text-muted">
                                             Enter Radio Number.
                                         </span>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputMember">Station#</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.stationNumber">
                                     <span id="helpMember" class="form-text small text-muted">
                                             Enter Station Number.
                                         </span>
                                 </div>
                                 <div class="form-group col-md-4">
                                     <label for="inputMember">Status</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.isActive">
                                     <span id="helpMember" class="form-text small text-muted">
                                             Enter Yes(if Active) or No(if not Active).
                                         </span>
@@ -185,7 +185,7 @@
 
                                 <div class="form-group">
                                     <label for="inputMember">Position</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.memberPosition">
                                     <span id="helpMember" class="form-text small text-muted">
                                             Enter Member's Position in the department.
                                         </span>
@@ -196,9 +196,34 @@
                             </form>
                         </div>
                     </div>
+
+
+                    <table class="table table-sm table-hover">
+                  <thead>
+                    <tr>
+                      <th>Member GUID</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Radio #</th>
+                      <th>Station #</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="m in members" @click="handleRowClick(m)">
+                      <td>{{ m.memberGuid }}</td>
+                      <td>{{ m.firstName }}</td>
+                      <td>{{ m.lastName }}</td>
+                      <td>{{ m.radioNumber }}</td>
+                      <td>{{ m.stationNumber }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+
                   </div>
                 </div>
               </div>
+
 
 
 
@@ -210,5 +235,6 @@
                   </footer>
               </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/member.app.js"></script>
 </body>
 </html>
