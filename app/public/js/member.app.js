@@ -16,7 +16,7 @@ var memberRecordsApp = new Vue({
        // TODO:
        fetch('api/members/post.php', {
          method:'POST',
-         body: JSON.stringify(this.member),
+         body: JSON.stringify(this.recordMember),
          // body is a string
          // JSON stringify is saying take this object memory and put it into a JSON string data type, serialize it?
          headers: {
@@ -26,7 +26,7 @@ var memberRecordsApp = new Vue({
        .then( response => response.json() )
        .then( json => {memberRecordsApp.members = json})
        .catch(err => {
-         console.error('MEMBER RECORD ERROR: ')
+         console.error('MEMBER RECORDS ERROR: ')
          console.error(err);
        })
        // refresh entire waiting queue everytime someone new added
