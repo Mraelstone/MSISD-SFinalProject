@@ -1,14 +1,14 @@
 var certificationRecordsApp = new Vue({
   el: '#certificationRecordsApp',
   data: {
-    members: [],
-    recordMember: {}
+    certifications: [],
+    recordCertification: {}
   },
   methods: {
     fetchCertifications() {
       fetch('api/certifications/')
       .then(response => response.json())
-      .then(json => { certificationRecordsApp.members = json })
+      .then(json => { certificationRecordsApp.certifications = json })
     },
     handleReset() {
       this.recordCertification = {
