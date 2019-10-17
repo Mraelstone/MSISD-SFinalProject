@@ -192,8 +192,6 @@ th[role=columnheader]:not(.no-sort):hover:after {
     background-image: url("../img/fireDept.jpg");
   height: 100%;
 }*/
-<<<<<<< HEAD:app/public/css/style.css
-=======
 
 .how-section1{
     margin-top:-15%;
@@ -280,4 +278,7 @@ body{
     text-align: center;
     color: #b30000;
 }
->>>>>>> master:app/public/css/site.css
+
+#sticky-footer {
+  flex-shrink: none;
+}
