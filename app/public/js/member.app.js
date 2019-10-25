@@ -53,10 +53,11 @@ var memberRecordsApp = new Vue({
     },
       handleRowClick(member){
         memberRecordsApp.member = member;
-    },
-    created() {
-      this.handleReset();
-      this.fetchMembers();
     }
-  }
+  },
+    created() {
+      this.fetchMembers();
+      this.handleReset();
+
+    }
 })

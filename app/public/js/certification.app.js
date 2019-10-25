@@ -43,10 +43,10 @@ var certificationRecordsApp = new Vue({
     },
       handleRowClick(certification){
         certificationRecordsApp.certification = certification;
-    },
+    }
+  },
     created() {
       this.handleReset();
       this.fetchCertifications();
     }
-  }
 })
