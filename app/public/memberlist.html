@@ -55,6 +55,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <a class="dropdown-item" href="addnewmember.html">Add Members</a>
                           <a class="dropdown-item" href="addcertification.html">Add Certifications</a>
+                          <a class="dropdown-item" href="assigncertification.html">Assign Certifications to Members</a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="stationradio.html">Show Members by Station & Radio #</a>
                         </div>
@@ -75,37 +76,15 @@
             </div>
 
               <!-- show the members -->
-              <div class="container" id="memberRecordsApp">
-
-                <div class="col-sm-6">
-                    <div class="panel panel-default">
-                      <div class="panel-heading">
-                         <h3>Members Lists</h3>
-                              </div>
-                              <table class="table table-sm table-hover">
-                            <thead>
-                              <tr>
-                                <th>Member GUID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Radio #</th>
-                                <th>Station #</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr v-for="m in members" @click="handleRowClick(m)">
-                                <td>{{ m.memberGuid }}</td>
-                                <td>{{ m.firstName }}</td>
-                                <td>{{ m.lastName }}</td>
-                                <td>{{ m.radioNumber }}</td>
-                                <td>{{ m.stationNumber }}</td>
-                                <td><button v-on:click="editMember(m)">Edit</button></td>
-                                <td><button v-on:click="removeMember(m)">Remove</button></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                          </div>
-                      </div>
+              <div class="container py-5" id="memberViewApp">
+                <div>
+                  <h3>Profile</h3>
+                </div>
+                <div>
+                  <div>
+                    Name: 
+                  </div>
+                </div>
                   </div>
 
 

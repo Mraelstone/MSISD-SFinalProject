@@ -6,28 +6,13 @@ use Ramsey\Uuid\Uuid;
 $db = DbConnection::getConnection();
 // Step 2: Prepare & run the query
 $stmt = $db->prepare(
-  'UPDATE Member SET
-  (firstName=?, lastName=?, sexAtBirth=?, addrStreet=?, addrCity=?, addrState=?, addrZipcode=?, workPhone=?, mobilePhone=?, radioNumber=?, stationNumber=?, isActive=?, memberPosition=?)
-  WHERE memberGuid=?'
+  'DELETE FROM Member WHERE memberGuid=?'
 );
 
 
 
 //How to prevent SQL injections:
 $stmt->execute([
-  $_POST['firstName'],
-  $_POST['lastName'],
-  $_POST['sexAtBirth'],
-  $_POST['addrStreet'],
-  $_POST['addrCity'],
-  $_POST['addrState'],
-  $_POST['addrZipcode'],
-  $_POST['workPhone'],
-  $_POST['mobilePhone'],
-  $_POST['radioNumber'],
-  $_POST['stationNumber'],
-  $_POST['isActive'],
-  $_POST['memberPosition'],
   $_POST['memberGuid']
 ]);
 

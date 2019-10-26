@@ -4,31 +4,22 @@ use Ramsey\Uuid\Uuid;
 
 // Step 1: Get a datase connection from our help class
 $db = DbConnection::getConnection();
+$guid = Uuid::uuid4()->toString();
 // Step 2: Prepare & run the query
 $stmt = $db->prepare(
-  'UPDATE Member SET
-  (firstName=?, lastName=?, sexAtBirth=?, addrStreet=?, addrCity=?, addrState=?, addrZipcode=?, workPhone=?, mobilePhone=?, radioNumber=?, stationNumber=?, isActive=?, memberPosition=?)
-  WHERE memberGuid=?'
+  'INSERT INTO Certified
+  (certifiedGuid, certification, member, expirationDate)
+  VALUES(?,?,?,?)'
 );
 
 
 
 //How to prevent SQL injections:
 $stmt->execute([
-  $_POST['firstName'],
-  $_POST['lastName'],
-  $_POST['sexAtBirth'],
-  $_POST['addrStreet'],
-  $_POST['addrCity'],
-  $_POST['addrState'],
-  $_POST['addrZipcode'],
-  $_POST['workPhone'],
-  $_POST['mobilePhone'],
-  $_POST['radioNumber'],
-  $_POST['stationNumber'],
-  $_POST['isActive'],
-  $_POST['memberPosition'],
-  $_POST['memberGuid']
+  $guid,
+  $_POST['certification'],
+  $_POST['member'],
+  $_POST['expirationDate']
 ]);
 
 //Global Variables: can introduce bad security practices (SQL injection ex.)
@@ -43,5 +34,5 @@ $stmt->execute([
 // Step 4: Output
 header('HTTP/1.1 303 See Other');
 //303 status code says redirect with a Get
-header('Location: ../members/');
+header('Location: ../certifieds/');
 //tells you where the other place is you're sending it to
