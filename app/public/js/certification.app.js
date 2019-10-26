@@ -26,7 +26,7 @@ var certificationRecordsApp = new Vue({
        .then( response => response.json() )
        .then( json => {certificationRecordsApp.certifications = json})
        .catch(err => {
-         console.error('CERTIFICATION RECORDS ERROR: ')
+         console.error('certification RECORDS ERROR: ')
          console.error(err);
        })
        // refresh entire waiting queue everytime someone new added
@@ -43,10 +43,10 @@ var certificationRecordsApp = new Vue({
     },
       handleRowClick(certification){
         certificationRecordsApp.certification = certification;
-    },
+    }
+  },
     created() {
       this.handleReset();
-      this.fetchCertification();
+      this.fetchCertifications();
     }
-  }
 })
