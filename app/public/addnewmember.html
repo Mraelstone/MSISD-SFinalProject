@@ -29,60 +29,214 @@
             </div>
           </header>
         </div>
-            <div>
-              <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #b30000;">
-                  <a class="navbar-brand" href="index.html">OCFD</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
 
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                      <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="aboutus.html">About Us</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="team.html">Our Team</a>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Reports
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <a class="dropdown-item" href="#">Expired List</a>
-                          <a class="dropdown-item" href="#">Certifications</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="stationradio.html">By Station & Radio #</a>
+        <div>
+          <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #b30000;">
+              <a class="navbar-brand" href="index.html">OCFD</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="aboutus.html">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="members.html">Members</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Reports
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="addnewmember.html">Add Members</a>
+                      <a class="dropdown-item" href="addcertification.html">Add Certifications</a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item" href="stationradio.html">Show Members by Station & Radio #</a>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contactus.html">Contact Us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login/Register</a>
+                  </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                </form>
+              </div>
+            </nav>
+        </div>
+        
+
+            <div class="container py-5" id="memberRecordsApp">
+              <div class="row">
+                <div class="col-md-12">
+              <!--    <h2 class="text-center mb-5">Bootstrap 4 Forms</h2> -->
+            <!-- form card reset password -->
+                    <div class="card card-outline-secondary">
+                        <div class="card-header">
+                            <h3 class="mb-0">Oconee County Fire Department Members</h3>
                         </div>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="contactus.html">Contact Us</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login/Register</a>
-                      </li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+                        <div class="card-body">
+                            <form class="form" role="form" autocomplete="off" @submit.prevent="handleSubmit">
+                              <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputMember">First Name</label>
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.firstName">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter First Name.
+                                        </span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputMember">Last Name</label>
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.lastName">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter Last Name.
+                                        </span>
+                                </div>
+                              </div>
+
+                              <div class="form-row">
+                                <div class="form-group col-md-3">
+                                    <label for="inputMember">Sex</label>
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.sexAtBirth">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter Sex at Birth.
+                                        </span>
+                                </div>
+                                <div class="form-group col-md-9">
+                                    <label for="inputMember">Street</label>
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.addrStreet">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter Street Address.
+                                        </span>
+                                </div>
+                              </div>
+
+                              <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputMember">City</label>
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.addrCity">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter City Name.
+                                        </span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputMember">State</label>
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.addrState">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter State Name.
+                                        </span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputMember">Zipcode</label>
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.addrZipcode">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter Zip code.
+                                        </span>
+                                </div>
+                              </div>
+
+                              <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="inputMember">Work Phone</label>
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.workPhone">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter the work phone number.
+                                        </span>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="inputMember">Mobile Phone</label>
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.mobilePhone">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter the mobile phone number.
+                                        </span>
+                                </div>
+                              </div>
+
+                              <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputMember">Radio#</label>
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.radioNumber">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter Radio Number.
+                                        </span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputMember">Station#</label>
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.stationNumber">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter Station Number.
+                                        </span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputMember">Status</label>
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.isActive">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter Yes(if Active) or No(if not Active).
+                                        </span>
+                                </div>
+                              </div>
+
+                                <div class="form-group">
+                                    <label for="inputMember">Position</label>
+                                    <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.memberPosition">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter Member's Position in the department.
+                                        </span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-danger btn-lg float-right">Add Member</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <table class="table table-sm table-hover">
+                  <thead>
+                    <tr>
+                      <th>Member GUID</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Radio #</th>
+                      <th>Station #</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="m in members" @click="handleRowClick(m)">
+                      <td>{{ m.memberGuid }}</td>
+                      <td>{{ m.firstName }}</td>
+                      <td>{{ m.lastName }}</td>
+                      <td>{{ m.radioNumber }}</td>
+                      <td>{{ m.stationNumber }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+
                   </div>
-                </nav>
-            </div>
+                </div>
+              </div>
 
 
 
 
-
-    <div class="container-fluid">
-        <footer class="row footer">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <p>Copyright &#169; 2019 The Trustees of Oconee County Fire Department</p>
-            </div>
-        </footer>
-    </div>
+              <div class="container-fluid text-center py-4 bg-dark text-white-50">
+                  <footer class="row sticky-footer">
+                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                          <p>Copyright &copy 2019 The Trustees of Oconee County Fire Department</p>
+                      </div>
+                  </footer>
+              </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/member.app.js"></script>
 </body>
 </html>

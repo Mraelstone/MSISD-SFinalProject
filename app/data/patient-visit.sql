@@ -1,18 +1,3 @@
-USE msis_triage;
-
-CREATE TABLE PatientVisit (
-    visitID int PRIMARY KEY AUTO_INCREMENT,
-    patientGuid VARCHAR(64) UNIQUE,
-    visitDescription TEXT,
-    visitDateUtc DATETIME DEFAULT CURRENT_TIMESTAMP,
-    priority ENUM('Low', 'Medium', 'High'),
-    FOREIGN KEY patientGuid REFERENCES patient
-);
-
-INSERT INTO PatientVisit (visitID, patientGuid, visitDescription, visitDateUtc, priority) VALUES
-("SOME-REALLY-LONG-1234", "Fever and a headache", "Low");
-
-
 USE bigRed;
 
 CREATE TABLE Member (

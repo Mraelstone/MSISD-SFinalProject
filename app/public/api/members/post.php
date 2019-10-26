@@ -4,7 +4,7 @@ use Ramsey\Uuid\Uuid;
 
 // Step 1: Get a datase connection from our help class
 $db = DbConnection::getConnection();
-
+$guid = Uuid::uuid4()->toString();
 // Step 2: Prepare & run the query
 $stmt = $db->prepare(
   'INSERT INTO Member
@@ -12,11 +12,11 @@ $stmt = $db->prepare(
   VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
 );
 
-$guid = Uuid::uuid4()->toString();
+
 
 //How to prevent SQL injections:
 $stmt->execute([
-  $guid, // i.e. 25769c6c-d34d-4bfe-ba98-e0ee856f3e7a
+  $guid,
   $_POST['firstName'],
   $_POST['lastName'],
   $_POST['sexAtBirth'],
@@ -44,5 +44,5 @@ $stmt->execute([
 // Step 4: Output
 header('HTTP/1.1 303 See Other');
 //303 status code says redirect with a Get
-header('Location: ../members/?guid='.$guid);
+header('Location: ../members/');
 //tells you where the other place is you're sending it to
