@@ -1,53 +1,37 @@
-var expiredcert = new Vue({
-  el: '#expiredcert',
+var expiredcertApp = new Vue({
+  el: '#expiredcertApp',
   data: {
     certifications: [],
+    //certificationID: '',
+    expiredCertifications:[],
+    filter:{
+      certificationID:''
+    }
   },
   methods: {
-    fetchStationRadio() {
-      fetch('api/members/certificationlist.php')
+    fetchExpiredCertifications() {
+      fetch('api/certifieds/listexpired.php')
       .then(response => response.json())
-      .then(json => { expiredcert.certifications = json })
+      .then(json => {
+        expiredcertApp.expiredCertifications = json })
     },
-    sendSelected() {
-      fetch('api/members/stationradio.php', {
-      method:'POST',
-      body: JSON.stringify(this.radiostation),
-      headers: {
-        "Content-Type": "application/json; charset=utf-8"
-      }
-    })
-    .then( response => response.json() )
-    .then( json => {
-      stationradio.radiostation = json;
-      this.handleReset();
-      //console.log(this.certifications);
-  })
-    .catch(err => {
-      console.error('Station and Radio ERROR: ')
-      console.error(err);
-    })
-    //this.handleReset();
-    },
-    getRadios() {
+
+    getAllCertifications() {
       fetch('api/certifications/certificationlist.php')
     .then( response => response.json() )
-    .then( json => {expiredcert.certifications = json;
-          console.log(this.certifications);
+    .then( json => {expiredcertApp.certifications = json;
+          console.log(expiredcertApp.certifications);
         })
     },
+
   handleReset() {
-    this.radiostation = {
-      radioNumber:'',
-      stationNumber:''
+    this.certificationID='';
     }
-  }
   },
   created() {
-    this.getRadios();
-    this.getStations();
-    this.handleReset();
-    this.fetchStationRadio();
+    this.getAllCertifications();
+    this.fetchExpiredCertifications();
+    //this.handleReset();
   }
 }
 )

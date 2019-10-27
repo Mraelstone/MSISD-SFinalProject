@@ -76,7 +76,7 @@
 
 
 
-                    <div class="container py-5" id="expiredcert">
+                    <div class="container py-5" id="expiredcertApp">
                       <div class="row">
                         <div class="col-md-12">
                       <!--    <h2 class="text-center mb-5">Bootstrap 4 Forms</h2> -->
@@ -90,20 +90,12 @@
 
                                   <div>
                                   <label for="strd">Certification ID</label>
-                                  <select v-model="radiostation.radioNumber">
+                                  <select v-model="filter.certificationID">
                                     <!-- <select v-model="selectedMember"> -->
-                                    <option v-for="radio in radios" v-bind:value="radio.radioNumber">
-                                      {{ radio.radioNumber}}
+                                    <option v-for="certification in certifications" v-bind:value="certification.certificationGuid">
+                                      {{ certification.certificationGuid}}
                                     </option>
                                   </select>
-                                </div>
-
-
-
-                                <div>
-                                  <div class="form-group">
-                                      <button @click="sendSelected()" class="btn btn-danger btn-lg float-right">Get List</button>
-                                  </div>
                                 </div>
                                   </form>
                                 </div>
@@ -116,17 +108,17 @@
                                   <th>Member GUID</th>
                                   <th>First Name</th>
                                   <th>Last Name</th>
-                                  <th>Radio #</th>
-                                  <th>Station #</th>
+                                  <th>CertificationGuid</th>
+                                  <th>Email</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr v-for="m in members">
+                                <tr v-for="m in expiredCertifications" @click="handleRowClick(m)" v-if="filter.certificationID=='' || filter.certificationID == m.certificationGuid">
                                   <td>{{ m.memberGuid }}</td>
                                   <td>{{ m.firstName }}</td>
                                   <td>{{ m.lastName }}</td>
-                                  <td>{{ m.radioNumber }}</td>
-                                  <td>{{ m.stationNumber }}</td>
+                                  <td>{{ m.certificationGuid }}</td>
+                                  <td>{{ m.email }}</td>
                                 </tr>
                               </tbody>
                             </table>
@@ -151,6 +143,6 @@
                   </footer>
               </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/stationradio.app.js"></script>
+  <script src="js/expired.app.js"></script>
 </body>
 </html>
