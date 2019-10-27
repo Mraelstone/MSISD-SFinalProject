@@ -16,6 +16,8 @@ var assignMemCertApp = new Vue({
         firstName: '',
         lastName: '',
         sexAtBirth: '',
+        email:'',
+        dob:'',
         addrStreet:'',
         addrCity:'',
         addrState:'',
@@ -23,6 +25,7 @@ var assignMemCertApp = new Vue({
         workPhone:'',
         mobilePhone: '',
         radioNumber:'',
+        startDate:'',
         stationNumber:'',
         isActive:'',
         memberPosition:''
