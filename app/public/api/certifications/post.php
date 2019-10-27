@@ -8,7 +8,7 @@ $guid = Uuid::uuid4()->toString();
 // Step 2: Prepare & run the query
 $stmt = $db->prepare(
   'INSERT INTO Certification
-  (certificationGuid, certificationName, expirationDate, agency)
+  (certificationGuid, certificationName, expirationPeriod, agency)
   VALUES(?,?,?,?)'
 );
 
@@ -18,7 +18,7 @@ $stmt = $db->prepare(
 $stmt->execute([
   $guid,
   $_POST['certificationName'],
-  $_POST['expirationDate'],
+  $_POST['expirationPeriod'],
   $_POST['agency']
 ]);
 

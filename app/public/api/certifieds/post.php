@@ -8,7 +8,7 @@ $guid = Uuid::uuid4()->toString();
 // Step 2: Prepare & run the query
 $stmt = $db->prepare(
   'INSERT INTO Certified
-  (certifiedGuid, certification, member, expirationDate)
+  (certifiedGuid, certification, member, assignedDate)
   VALUES(?,?,?,?)'
 );
 
@@ -19,7 +19,7 @@ $stmt->execute([
   $guid,
   $_POST['certification'],
   $_POST['member'],
-  $_POST['expirationDate']s
+  $_POST['assignedDate']
 ]);
 
 //Global Variables: can introduce bad security practices (SQL injection ex.)
