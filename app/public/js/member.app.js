@@ -6,7 +6,7 @@ var memberRecordsApp = new Vue({
   },
   methods: {
     fetchMembers() {
-      fetch('api/members/')
+      fetch('api/members/index.php')
       .then(response => response.json())
       .then(json => { memberRecordsApp.members = json })
     },
@@ -24,12 +24,14 @@ var memberRecordsApp = new Vue({
       }
     })
     .then( response => response.json() )
-    .then( json => {memberRecordsApp.members = json})
+    .then( json => {memberRecordsApp.members = json;
+    this.handleReset();
+  })
     .catch(err => {
-      console.error('MEMBER RECORDS ERROR: ')
+      console.error('MEMBER UPDATE ERROR: ')
       console.error(err);
     })
-    this.handleReset();
+    //this.handleReset();
     },
 
     deleteMember(mem) {
@@ -44,7 +46,7 @@ var memberRecordsApp = new Vue({
     .then( response => response.json() )
     .then( json => {memberRecordsApp.members = json})
     .catch(err => {
-      console.error('MEMBER RECORDS ERROR: ')
+      console.error('MEMBER DELETION ERROR: ')
       console.error(err);
     })
     this.handleReset();
@@ -72,6 +74,8 @@ var memberRecordsApp = new Vue({
         firstName: '',
         lastName: '',
         sexAtBirth: '',
+        email:'',
+        dob:'',
         addrStreet:'',
         addrCity:'',
         addrState:'',
@@ -79,6 +83,7 @@ var memberRecordsApp = new Vue({
         workPhone:'',
         mobilePhone: '',
         radioNumber:'',
+        startDate:'',
         stationNumber:'',
         isActive:'',
         memberPosition:''

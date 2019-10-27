@@ -39,7 +39,7 @@
 
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-                      <li class="nav-item">
+                      <li class="nav-item active">
                         <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
                       </li>
                       <li class="nav-item">
@@ -74,31 +74,29 @@
             </div>
 
               <!-- show the members -->
-              <div class="container py-5" id="memberViewApp">
+              <div class="container py-5" id="certificationViewApp">
                 <div>
-                  <h3>Profile</h3>
+                  <h3>Certification Profile</h3>
                 </div>
                 <div>
                   <div>
-                    Name: {{recordMember.firstName}}{{recordMember.lastName}}
+                    Name: {{recordCertification.certificationName}}
                   </div>
                   <div>
-                    Sex: {{recordMember.sexAtBirth}}
+                    Expiration Period: {{recordCertification.expirationPeriod}}
                   </div>
+
                   <div>
-                    Address: {{recordMember.addrStreet}}{{recordMember.addrCity}}{{recordMember.addrState}}{{recordMember.addrZipcode}}
+                    Agency: {{recordCertification.agency}}
                   </div>
-                  <div>
-                    Radio Number: {{recordMember.radioNumber}}
-                  </div>
-                  <div>
-                    Station Number: {{recordMember.stationNumber}}
-                  </div>
-                  <div>
-                    Email: {{recordMember.email}}
-                  </div>
+
                 </div>
                   </div>
+
+
+
+
+
               <div class="container-fluid text-center py-4 bg-dark text-white-50">
                   <footer class="row sticky-footer">
                       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -107,6 +105,6 @@
                   </footer>
               </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/view.app.js"></script>
+  <script src="js/cview.app.js"></script>
 </body>
 </html>

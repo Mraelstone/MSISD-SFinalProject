@@ -4,22 +4,17 @@ use Ramsey\Uuid\Uuid;
 
 // Step 1: Get a datase connection from our help class
 $db = DbConnection::getConnection();
-$guid = Uuid::uuid4()->toString();
 // Step 2: Prepare & run the query
-$stmt = $db->prepare(
-  'INSERT INTO Certified
-  (certifiedGuid, certification, member, assignedDate)
-  VALUES(?,?,?,?)'
-);
+$stmt = $db->prepare('UPDATE Certification SET certificationName=?, expirationPeriod=?, agency=? WHERE certificationGuid=?');
 
 
 
 //How to prevent SQL injections:
 $stmt->execute([
-  $guid,
-  $_POST['certification'],
-  $_POST['member'],
-  $_POST['assignedDate']
+  $_POST['certificationName'],
+  $_POST['expirationPeriod'],
+  $_POST['agency'],
+  $_POST['certificationGuid']
 ]);
 
 //Global Variables: can introduce bad security practices (SQL injection ex.)
@@ -34,5 +29,5 @@ $stmt->execute([
 // Step 4: Output
 header('HTTP/1.1 303 See Other');
 //303 status code says redirect with a Get
-header('Location: ../certifieds/');
+header('Location: ../certifications/');
 //tells you where the other place is you're sending it to

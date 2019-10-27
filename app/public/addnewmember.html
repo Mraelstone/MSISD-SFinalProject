@@ -45,9 +45,6 @@
                   <li class="nav-item">
                     <a class="nav-link" href="aboutus.html">About Us</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="memberlist.html">Members</a>
-                  </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       Reports
@@ -58,6 +55,7 @@
                       <a class="dropdown-item" href="assigncertification.html">Assign Certifications to Members</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item" href="stationradio.html">Show Members by Station & Radio #</a>
+                      <a class="dropdown-item" href="expiredcerti.html">Show Expired Certifications</a>
                     </div>
                   </li>
                   <li class="nav-item">
@@ -117,6 +115,30 @@
                                     <input type="text" class="form-control" id="inputMember" required="" v-model="recordMember.addrStreet">
                                     <span id="helpMember" class="form-text small text-muted">
                                             Enter Street Address.
+                                        </span>
+                                </div>
+                              </div>
+
+                              <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="inputMember">Email</label>
+                                    <input type="email" class="form-control" id="inputMember" required="" v-model="recordMember.email">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter Email.
+                                        </span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputMember">DOB</label>
+                                    <input type="date" class="form-control" id="inputMember" required="" v-model="recordMember.dob">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter date of Birth.
+                                        </span>
+                                </div>
+                                <div class="form-group col-md-4">
+                                    <label for="inputMember">Start Date</label>
+                                    <input type="date" class="form-control" id="inputMember" required="" v-model="recordMember.startDate">
+                                    <span id="helpMember" class="form-text small text-muted">
+                                            Enter date of starting service.
                                         </span>
                                 </div>
                               </div>
@@ -194,8 +216,9 @@
                                         </span>
                                 </div>
                                 <div class="form-group">
-                                    <button @click="handleSubmit()" type="submit" class="btn btn-danger btn-lg float-right">Add Member</button>
-                                    <button @click="editMember()" type="submit" class="btn btn-danger btn-lg float-right">Edit Member</button>
+                                    <button @click="handleSubmit()" class="btn btn-danger btn-lg float-right">Add Member</button>
+                                    
+                                    <button @click="editMember()" class="btn btn-danger btn-lg float-right">Edit Member</button>
                                 </div>
                             </form>
                         </div>
@@ -210,6 +233,7 @@
                       <th>Last Name</th>
                       <th>Radio #</th>
                       <th>Station #</th>
+                      <th>Email</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -219,6 +243,7 @@
                       <td>{{ m.lastName }}</td>
                       <td>{{ m.radioNumber }}</td>
                       <td>{{ m.stationNumber }}</td>
+                      <td>{{ m.email }}</td>
                       <td><input type='button' value='Update' @click='showMember(m)' >
                         <a :href="'memberlist.html?memberGuid='+m.memberGuid">View Profile</a>
                         <input type='button' value='Delete' @click='deleteMember(m.memberGuid)'>

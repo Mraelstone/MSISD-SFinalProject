@@ -5,10 +5,7 @@ use Ramsey\Uuid\Uuid;
 // Step 1: Get a datase connection from our help class
 $db = DbConnection::getConnection();
 // Step 2: Prepare & run the query
-$stmt = $db->prepare(
-  'UPDATE Member SET
-  (firstName=?, lastName=?, sexAtBirth=?, addrStreet=?, addrCity=?, addrState=?, addrZipcode=?, workPhone=?, mobilePhone=?, radioNumber=?, stationNumber=?, isActive=?, memberPosition=?)
-  WHERE memberGuid=?'
+$stmt = $db->prepare(('UPDATE Member SET firstName=?, lastName=?, sexAtBirth=?, email=?, dob=?, addrStreet=?, addrCity=?, addrState=?, addrZipcode=?, workPhone=?, mobilePhone=?, startDate=?, radioNumber=?, stationNumber=?, isActive=?, memberPosition=? WHERE memberGuid=?')
 );
 
 
@@ -18,12 +15,15 @@ $stmt->execute([
   $_POST['firstName'],
   $_POST['lastName'],
   $_POST['sexAtBirth'],
+  $_POST['email'],
+  $_POST['dob'],
   $_POST['addrStreet'],
   $_POST['addrCity'],
   $_POST['addrState'],
   $_POST['addrZipcode'],
   $_POST['workPhone'],
   $_POST['mobilePhone'],
+  $_POST['startDate'],
   $_POST['radioNumber'],
   $_POST['stationNumber'],
   $_POST['isActive'],
