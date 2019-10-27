@@ -76,47 +76,46 @@
               <!-- show the members -->
               <div class="container py-5" id="memberViewApp">
                 <div>
-                  <h3>Profile</h3>
+                  <h3>{{recordMember.firstName}}'s Profile</h3>
                 </div>
                 <div>
                   <div>
-                    Name: {{recordMember.firstName}}{{recordMember.lastName}}
+                    <strong>Name:</strong>  {{recordMember.firstName}} {{recordMember.lastName}}
                   </div>
                   <div>
-                    Sex: {{recordMember.sexAtBirth}}
+                    <strong>Sex:</strong> {{recordMember.sexAtBirth}}
                   </div>
                   <div>
-                    Address: {{recordMember.addrStreet}}{{recordMember.addrCity}}{{recordMember.addrState}}{{recordMember.addrZipcode}}
+                    <strong>Address:</strong> {{recordMember.addrStreet}} {{recordMember.addrCity}} {{recordMember.addrState}} {{recordMember.addrZipcode}}
                   </div>
                   <div>
-                    Radio Number: {{recordMember.radioNumber}}
+                    <strong>Radio Number:</strong> {{recordMember.radioNumber}}
                   </div>
                   <div>
-                    Station Number: {{recordMember.stationNumber}}
+                    <strong>Station Number:</strong> {{recordMember.stationNumber}}
                   </div>
                   <div>
-                    Email: {{recordMember.email}}
+                    <strong>Email:</strong> {{recordMember.email}}
                   </div>
                 </div>
 
                 <div>
+                  <h3>Certifications for {{recordMember.firstName}} {{recordMember.lastName}}</h3>
+                </div>
+                <div>
                 <table class="table table-sm table-hover">
               <thead>
                 <tr>
-                  <th>Member GUID</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Certification Guid</th>
-                  <th>Email</th>
+                  <th>Certification GUID</th>
+                  <th>Certification Name</th>
+                  <th>Certification Agency</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="m in memberCert">
-                  <td>{{ m.memberGuid }}</td>
-                  <td>{{ m.firstName }}</td>
-                  <td>{{ m.lastName }}</td>
-                  <td>{{ m.CertificationGuid }}</td>
-                  <td>{{ m.email }}</td>
+                <tr v-for="m in memberCert" @click="handleRowClick(m)">
+                  <td>{{ m.certificationGuid }}</td>
+                  <td>{{ m.certificationName }}</td>
+                  <td>{{ m.agency }}</td>
                 </tr>
               </tbody>
             </table>

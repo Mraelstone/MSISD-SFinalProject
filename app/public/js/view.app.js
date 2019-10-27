@@ -49,7 +49,10 @@ var memberViewApp = new Vue({
     // })
     //this.handleReset();
     console.log(this.memberCert);
-    }
+  },
+    handleRowClick(member){
+      memberViewApp.member = member;
+  }
   },
   created() {
     this.handleReset();
