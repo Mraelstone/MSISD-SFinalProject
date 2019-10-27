@@ -8,7 +8,7 @@ $guid = Uuid::uuid4()->toString();
 // Step 2: Prepare & run the query
 $stmt = $db->prepare(
   'INSERT INTO Member
-  (memberGuid, firstName, lastName, sexAtBirth, email, dob, addrStreet, addrCity, addrState, addrZipcode, workPhone, mobilePhone, radioNumber, startDate, stationNumber, isActive, memberPosition)
+  (memberGuid, firstName, lastName, sexAtBirth, email, dob, addrStreet, addrCity, addrState, addrZipcode, workPhone, mobilePhone,startDate, radioNumber, stationNumber, isActive, memberPosition)
   VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
 );
 

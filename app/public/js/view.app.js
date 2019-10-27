@@ -2,6 +2,7 @@ var memberViewApp = new Vue({
   el: '#memberViewApp',
   data: {
     members: [],
+    memberCert:[],
     recordMember: {},
     mem : new URL(window.location.href).searchParams.get("memberGuid")
   },
@@ -19,8 +20,8 @@ var memberViewApp = new Vue({
         addrZipcode:'',
         workPhone:'',
         mobilePhone: '',
-        radioNumber:'',
         startDate:'',
+        radioNumber:'',
         stationNumber:'',
         isActive:'',
         memberPosition:''
@@ -36,12 +37,28 @@ var memberViewApp = new Vue({
     // })
     this.handleReset();
     console.log(this.recordMember);
-    }
+    },
+
+    getMemberCert(mem) {
+      fetch('api/members/viewCert.php?memberGuid='+mem)
+    .then( response => response.json() )
+    .then( json => {memberViewApp.memberCert = json})
+    // .catch(err => {
+    //   console.error('MEMBER FETCH ERROR: ')
+    //   console.error(err);
+    // })
+    //this.handleReset();
+    console.log(this.memberCert);
+  },
+    handleRowClick(member){
+      memberViewApp.member = member;
+  }
   },
   created() {
     this.handleReset();
     console.log(this.mem);
     this.getMember(this.mem);
+    this.getMemberCert(this.mem);
   }
 }
 )

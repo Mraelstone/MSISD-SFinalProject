@@ -24,8 +24,8 @@ var assignMemCertApp = new Vue({
         addrZipcode:'',
         workPhone:'',
         mobilePhone: '',
-        radioNumber:'',
         startDate:'',
+        radioNumber:'',
         stationNumber:'',
         isActive:'',
         memberPosition:''

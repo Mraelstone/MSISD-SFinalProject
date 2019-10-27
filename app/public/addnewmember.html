@@ -229,8 +229,7 @@
                   <thead>
                     <tr>
                       <th>Member GUID</th>
-                      <th>First Name</th>
-                      <th>Last Name</th>
+                      <th>Name</th>
                       <th>Radio #</th>
                       <th>Station #</th>
                       <th>Email</th>
@@ -239,8 +238,7 @@
                   <tbody>
                     <tr v-for="m in members" @click="handleRowClick(m)">
                       <td>{{ m.memberGuid }}</td>
-                      <td>{{ m.firstName }}</td>
-                      <td>{{ m.lastName }}</td>
+                      <td>{{ m.firstName }} {{ m.lastName }}</td>
                       <td>{{ m.radioNumber }}</td>
                       <td>{{ m.stationNumber }}</td>
                       <td>{{ m.email }}</td>

@@ -27,7 +27,7 @@ CREATE TABLE Certifications (
 CREATE TABLE Certified (
 	certifiedGuid varchar(64) PRIMARY KEY,
 	expirationDate date default null,
-    FOREIGN KEY (certificationGuid) REFERENCES Certifications (certificationGuid),
+    FOREIGN KEY (certificationGuid) REFERENCES Certification (certificationGuid),
     FOREIGN KEY (memberGuid) REFERENCES Member (memberGuid)
 );
 
