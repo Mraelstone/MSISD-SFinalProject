@@ -82,8 +82,8 @@ var memberRecordsApp = new Vue({
         addrZipcode:'',
         workPhone:'',
         mobilePhone: '',
-        radioNumber:'',
         startDate:'',
+        radioNumber:'',
         stationNumber:'',
         isActive:'',
         memberPosition:''

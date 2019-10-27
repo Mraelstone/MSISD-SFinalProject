@@ -80,17 +80,38 @@
                 </div>
                 <div>
                   <div>
-                    Name: {{recordCertification.certificationName}}
+                    <strong>Name:</strong> {{recordCertification.certificationName}}
                   </div>
                   <div>
-                    Expiration Period: {{recordCertification.expirationPeriod}}
+                    <strong>Expiration Period:</strong> {{recordCertification.expirationPeriod}}
                   </div>
 
                   <div>
-                    Agency: {{recordCertification.agency}}
+                    <strong>Agency:</strong> {{recordCertification.agency}}
                   </div>
 
                 </div>
+                <div>
+                  <h3>Members with {{recordCertification.certificationName}} Certification</h3>
+                </div>
+                <div>
+                <table class="table table-sm table-hover">
+                        <thead>
+                          <tr>
+                            <th>Member GUID</th>
+                            <th>Member Name</th>
+                            <th>Email</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="c in certMember" @click="handleRowClick(c)">
+                            <td>{{ c.memberGuid }}</td>
+                            <td>{{ c.firstName }} {{ c.lastName }}</td>
+                            <td>{{ c.email }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
 
 

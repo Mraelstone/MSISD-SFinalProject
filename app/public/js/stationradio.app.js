@@ -4,33 +4,19 @@ var stationradio = new Vue({
     radios: [],
     stations: [],
     radiostation:{},
-    members:[]
+    resultForReport: [],
+    members:[],
+    member:{},
+    filter:{
+      radioNumber:'',
+      stationNumber:''
+    }
   },
   methods: {
-    fetchStationRadio() {
-      fetch('api/members/stationradio.php')
+    fetchMembers() {
+      fetch('api/members/index.php')
       .then(response => response.json())
       .then(json => { stationradio.members = json })
-    },
-    sendSelected() {
-      fetch('api/members/stationradio.php', {
-      method:'POST',
-      body: JSON.stringify(this.radiostation),
-      headers: {
-        "Content-Type": "application/json; charset=utf-8"
-      }
-    })
-    .then( response => response.json() )
-    .then( json => {
-      stationradio.radiostation = json;
-      this.handleReset();
-      //console.log(this.certifications);
-  })
-    .catch(err => {
-      console.error('Station and Radio ERROR: ')
-      console.error(err);
-    })
-    //this.handleReset();
     },
     getRadios() {
       fetch('api/members/radiolist.php')
@@ -45,18 +31,36 @@ var stationradio = new Vue({
     .then( json => {stationradio.stations = json;
       console.log(this.stations);})
   },
-  handleReset() {
-    this.radiostation = {
+
+  handleMemberReset() {
+    this.recordMember = {
+      firstName: '',
+      lastName: '',
+      sexAtBirth: '',
+      email:'',
+      dob:'',
+      addrStreet:'',
+      addrCity:'',
+      addrState:'',
+      addrZipcode:'',
+      workPhone:'',
+      mobilePhone: '',
+      startDate:'',
       radioNumber:'',
-      stationNumber:''
+      stationNumber:'',
+      isActive:'',
+      memberPosition:''
     }
+  },
+    handleRowClick(member){
+      stationradio.member = member;
   }
   },
   created() {
+    this.fetchMembers();
     this.getRadios();
     this.getStations();
-    this.handleReset();
-    this.fetchStationRadio();
+    this.handleMemberReset();
+    //this.fetchStationRadio();
   }
-}
-)
+})
