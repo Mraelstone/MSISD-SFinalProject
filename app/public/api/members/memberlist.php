@@ -4,8 +4,8 @@
 
 // Step 1: Get a datase connection from our help class
 $db = DbConnection::getConnection();
-  $stmt = $db->prepare('SELECT * FROM Member WHERE memberGuid=?');
-  $stmt->execute([$_GET['memberGuid']]);
+  $stmt = $db->prepare('SELECT memberGuid FROM Member');
+  $stmt->execute();
 $member = $stmt->fetchAll();
 // Step 3: Convert to JSON
 $json = json_encode($member, JSON_PRETTY_PRINT);
