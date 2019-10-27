@@ -220,7 +220,7 @@
                       <td>{{ m.radioNumber }}</td>
                       <td>{{ m.stationNumber }}</td>
                       <td><input type='button' value='Update' @click='showMember(m)' >
-                        <a href="memberlist.html?memberGuid=m.memberGuid">View Profile</a>
+                        <a :href="'memberlist.html?memberGuid='+m.memberGuid">View Profile</a>
                         <input type='button' value='Delete' @click='deleteMember(m.memberGuid)'>
                       </td>
                     </tr>

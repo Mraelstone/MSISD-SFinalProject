@@ -85,26 +85,27 @@
                             <h3 class="mb-0">Assign Certifications to Members</h3>
                         </div>
                         <div class="card-body">
-                            <form class="form" role="form" autocomplete="off">
-                                <div class="form-group">
-                                    <label for="inputMember">Member ID</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
-                                </div>
+                          <form>
+                          <label for="assMemCert">Member ID</label>
 
-                                <div class="form-group">
-                                    <label for="inputMember">Certification ID</label>
-                                    <input type="text" class="form-control" id="inputMember" required="">
-                                </div>
+                          <select v-model="selected">
+                            <option v-for="member in recordMember" v-bind:value="memberGuid">
+                              {{ member }}
+                            </option>
+                          </select>
 
-                                <div class="form-group">
-                                    <label for="inputMember">Date Assigned</label>
-                                    <input type="date" class="form-control" id="inputMember" required="">
-                                </div>
+                          <label for="assMemCert">Certification ID</label>
+                          <select class="form-control" id="assMemCert" name='certification' @click="getCertifications()">
+                          </select>
 
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-danger btn-lg float-right">Assign</button>
-                                </div>
-                            </form>
+                          <label for="assMemCert">Date Assigned</label>
+                          <input type="date" class="form-control" id="assMemCert" required="">
+
+                          <div class="form-group">
+                              <button type="submit" class="btn btn-danger btn-lg float-right">Assign</button>
+                          </div>
+
+                          </form>
                         </div>
                     </div>
                   </div>

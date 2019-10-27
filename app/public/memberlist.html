@@ -82,7 +82,19 @@
                 </div>
                 <div>
                   <div>
-                    Name: 
+                    Name: {{recordMember.firstName}}{{recordMember.lastName}}
+                  </div>
+                  <div>
+                    Sex: {{recordMember.sexAtBirth}}
+                  </div>
+                  <div>
+                    Address: {{recordMember.addrStreet}}{{recordMember.addrCity}}{{recordMember.addrState}}{{recordMember.addrZipcode}}
+                  </div>
+                  <div>
+                    Radio Number: {{recordMember.radioNumber}}
+                  </div>
+                  <div>
+                    Station Number: {{recordMember.stationNumber}}
                   </div>
                 </div>
                   </div>
@@ -99,6 +111,6 @@
                   </footer>
               </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/member.app.js"></script>
+  <script src="js/view.app.js"></script>
 </body>
 </html>
