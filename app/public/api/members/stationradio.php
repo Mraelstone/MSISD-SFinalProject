@@ -13,8 +13,8 @@ $stmt = $db->prepare(
 
 //How to prevent SQL injections:
 $stmt->execute([
-  $_POST['radioNumber'],
-  $_POST['stationNumber']
+  $_GET['radioNumber'],
+  $_GET['stationNumber']
 ]);
 
 $members = $stmt->fetchAll();

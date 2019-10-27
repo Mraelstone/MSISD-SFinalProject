@@ -98,6 +98,31 @@
                     Email: {{recordMember.email}}
                   </div>
                 </div>
+
+                <div>
+                <table class="table table-sm table-hover">
+              <thead>
+                <tr>
+                  <th>Member GUID</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Certification Guid</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="m in memberCert">
+                  <td>{{ m.memberGuid }}</td>
+                  <td>{{ m.firstName }}</td>
+                  <td>{{ m.lastName }}</td>
+                  <td>{{ m.CertificationGuid }}</td>
+                  <td>{{ m.email }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
                   </div>
 
 
