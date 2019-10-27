@@ -74,6 +74,8 @@ var memberRecordsApp = new Vue({
         firstName: '',
         lastName: '',
         sexAtBirth: '',
+        email:'',
+        dob:'',
         addrStreet:'',
         addrCity:'',
         addrState:'',
@@ -81,6 +83,7 @@ var memberRecordsApp = new Vue({
         workPhone:'',
         mobilePhone: '',
         radioNumber:'',
+        startDate:'',
         stationNumber:'',
         isActive:'',
         memberPosition:''
