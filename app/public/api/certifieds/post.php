@@ -19,7 +19,7 @@ $stmt->execute([
   $guid,
   $_POST['certification'],
   $_POST['member'],
-  $_POST['expirationDate']
+  $_POST['expirationDate']s
 ]);
 
 //Global Variables: can introduce bad security practices (SQL injection ex.)

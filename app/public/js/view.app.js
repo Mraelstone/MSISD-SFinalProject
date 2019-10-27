@@ -2,25 +2,43 @@ var memberViewApp = new Vue({
   el: '#memberViewApp',
   data: {
     members: [],
-    recordMember: {}
+    recordMember: {},
+    mem : new URL(window.location.href).searchParams.get("memberGuid")
   },
   methods: {
-    getMember() {
-      fetch('api/members/view.php', {
-      method:'GET',
-      body: JSON.stringify(this.recordMember),
-      headers: {
-        "Content-Type": "application/json; charset=utf-8"
+      handleReset() {
+      this.recordMember = {
+        firstName: '',
+        lastName: '',
+        sexAtBirth: '',
+        addrStreet:'',
+        addrCity:'',
+        addrState:'',
+        addrZipcode:'',
+        workPhone:'',
+        mobilePhone: '',
+        radioNumber:'',
+        stationNumber:'',
+        isActive:'',
+        memberPosition:''
       }
-    })
+    },
+    getMember(mem) {
+      fetch('api/members/view.php?memberGuid='+mem)
     .then( response => response.json() )
-    .then( json => {memberViewApp.members = json})
-    .catch(err => {
-      console.error('MEMBER RECORDS ERROR: ')
-      console.error(err);
-    })
+    .then( json => {memberViewApp.recordMember = json[0]})
+    // .catch(err => {
+    //   console.error('MEMBER FETCH ERROR: ')
+    //   console.error(err);
+    // })
     this.handleReset();
+    console.log(this.recordMember);
     }
+  },
+  created() {
+    this.handleReset();
+    console.log(this.mem);
+    this.getMember(this.mem);
   }
 }
 )
