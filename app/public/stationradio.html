@@ -83,15 +83,62 @@
                     <!-- form card reset password -->
                             <div class="card card-outline-secondary">
                                 <div class="card-header">
-                                    <h3 class="mb-0">Member List Generation by Station and Radio</h3>
+                                    <h3 class="mb-0">Member Filtering by Station and Radio</h3>
                                 </div>
-                                <div class="card-body">
-                                  <form>
+                                <div class="card-body filter">
+
+                                  <div >
+                                  <label for="strd">Radio #</label>
+                                  <select v-model="filter.radioNumber">
+                                    <option v-for="radio in radios" v-bind:value="radio.radioNumber">
+                                      {{ radio.radioNumber}}
+                                    </option>
+                                  </select>
+                                </div>
+
+                                  <div>
+                                  <label for="strd">Station #</label>
+                                  <select v-model="filter.stationNumber">
+                                    <option v-for="station in stations" v-bind:value="station.stationNumber">
+                                      {{ station.stationNumber}}
+                                    </option>
+                                  </select>
+                                </div>
+
+                                <div>
+                                  <table class="table table-sm table-hover">
+                                      <thead>
+                                        <tr>
+                                          <th>Member ID</th>
+                                          <th>First Name</th>
+                                          <th>Last Name</th>
+                                          <th>Email</th>
+                                          <th>Station #</th>
+                                          <th>Radio #</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody>
+                                        <tr v-for="m in members" @click="handleRowClick(m)"
+                                        v-if="filter.stationNumber=='' ||filter.radioNumber=='' || filter.stationNumber == m.stationNumber && filter.radioNumber == m.radioNumber">
+                                          <td>{{ m.memberGuid }}</td>
+                                          <td>{{ m.firstName }}</td>
+                                          <td>{{ m.lastName }}</td>
+                                          <td>{{ m.email }}</td>
+                                          <td>{{ m.stationNumber }}</td>
+                                          <td>{{ m.radioNumber }}</td>
+                                        </tr>
+                                      </tbody>
+                                    </table>
+                                </div>
+                              </form>
+
+
+                                  <!-- <form>
 
                                   <div>
                                   <label for="strd">Radio #</label>
                                   <select v-model="radiostation.radioNumber">
-                                    <!-- <select v-model="selectedMember"> -->
+                                     <select v-model="selectedMember">
                                     <option v-for="radio in radios" v-bind:value="radio.radioNumber">
                                       {{ radio.radioNumber}}
                                     </option>
@@ -101,7 +148,7 @@
                                   <div>
                                   <label for="strd">Station #</label>
                                   <select v-model="radiostation.stationNumber">
-                                    <!-- <select v-model="selectedCertification"> -->
+                                     <select v-model="selectedCertification">
                                     <option v-for="station in stations" v-bind:value="station.stationNumber">
                                       {{ station.stationNumber}}
                                     </option>
@@ -113,32 +160,11 @@
                                       <button @click="sendSelected()" class="btn btn-danger btn-lg float-right">Get List</button>
                                   </div>
                                 </div>
-                                  </form>
+                              </form> -->
                                 </div>
 
 
-                                <div>
-                                <table class="table table-sm table-hover">
-                              <thead>
-                                <tr>
-                                  <th>Member GUID</th>
-                                  <th>First Name</th>
-                                  <th>Last Name</th>
-                                  <th>Radio #</th>
-                                  <th>Station #</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr v-for="m in members">
-                                  <td>{{ m.memberGuid }}</td>
-                                  <td>{{ m.firstName }}</td>
-                                  <td>{{ m.lastName }}</td>
-                                  <td>{{ m.radioNumber }}</td>
-                                  <td>{{ m.stationNumber }}</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
+
 
 
 

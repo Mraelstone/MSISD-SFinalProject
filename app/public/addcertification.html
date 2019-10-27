@@ -132,9 +132,9 @@
                       <td>{{ c.certificationName }}</td>
                       <td>{{ c.expirationPeriod }}</td>
                       <td>{{ c.agency }}</td>
-                      <td><input type='button' value='Update Certification' @click='showCertification(c)' >
-                        <a :href="'certificationview.html?certificationGuid='+c.certificationGuid">View Certification</a>
-                        <input type='button' value='Delete Certification' @click='deleteCertification(c.certificationGuid)'>
+                      <td><input type='button' value='Update' @click='showCertification(c)' >
+                        <a :href="'certificationview.html?certificationGuid='+c.certificationGuid">View</a>
+                        <input type='button' value='Delete' @click='deleteCertification(c.certificationGuid)'>
                       </td>
                     </tr>
                   </tbody>
