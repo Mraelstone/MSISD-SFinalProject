@@ -1,42 +1,26 @@
-var expiredcert = new Vue({
-  el: '#expiredcert',
+var expiredcertApp = new Vue({
+  el: '#expiredcertApp',
   data: {
     certifications: [],
-    certificationID: '',
-    expiredCertifications:[]
+    //certificationID: '',
+    expiredCertifications:[],
+    filter:{
+      certificationID:''
+    }
   },
   methods: {
     fetchExpiredCertifications() {
       fetch('api/certifieds/listexpired.php')
       .then(response => response.json())
-      .then(json => { expiredcert.expiredCertifications = json })
-    },
-    sendSelected() {
-      fetch('api/certifieds/listexpired.php', {
-      method:'POST',
-      body: JSON.stringify(this.certificationID),
-      headers: {
-        "Content-Type": "application/json; charset=utf-8"
-      }
-    })
-    .then( response => response.json() )
-    .then( json => {
-      expiredcert.certificationID = json;
-      this.handleReset();
-      //console.log(this.certifications);
-  })
-    .catch(err => {
-      console.error('Certif expired ERROR: ')
-      console.error(err);
-    })
-    //this.handleReset();
+      .then(json => {
+        expiredcertApp.expiredCertifications = json })
     },
 
     getAllCertifications() {
       fetch('api/certifications/certificationlist.php')
     .then( response => response.json() )
-    .then( json => {expiredcert.certifications = json;
-          console.log(this.certifications);
+    .then( json => {expiredcertApp.certifications = json;
+          console.log(expiredcertApp.certifications);
         })
     },
 
@@ -46,7 +30,8 @@ var expiredcert = new Vue({
   },
   created() {
     this.getAllCertifications();
-    this.handleReset();
+    this.fetchExpiredCertifications();
+    //this.handleReset();
   }
 }
 )

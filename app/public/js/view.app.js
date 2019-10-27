@@ -20,8 +20,8 @@ var memberViewApp = new Vue({
         addrZipcode:'',
         workPhone:'',
         mobilePhone: '',
-        radioNumber:'',
         startDate:'',
+        radioNumber:'',
         stationNumber:'',
         isActive:'',
         memberPosition:''

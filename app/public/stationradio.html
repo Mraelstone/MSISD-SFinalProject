@@ -119,7 +119,7 @@
                                       </thead>
                                       <tbody>
                                         <tr v-for="m in members" @click="handleRowClick(m)"
-                                        v-if="filter.stationNumber=='' ||filter.radioNumber=='' || filter.stationNumber == m.stationNumber || filter.radioNumber == m.radioNumber">
+                                        v-if="filter.stationNumber=='' ||filter.radioNumber=='' || filter.stationNumber == m.stationNumber && filter.radioNumber == m.radioNumber">
                                           <td>{{ m.memberGuid }}</td>
                                           <td>{{ m.firstName }}</td>
                                           <td>{{ m.lastName }}</td>
