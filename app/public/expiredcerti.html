@@ -76,20 +76,20 @@
 
 
 
-                    <div class="container py-5" id="stationradio">
+                    <div class="container py-5" id="expiredcert">
                       <div class="row">
                         <div class="col-md-12">
                       <!--    <h2 class="text-center mb-5">Bootstrap 4 Forms</h2> -->
                     <!-- form card reset password -->
                             <div class="card card-outline-secondary">
                                 <div class="card-header">
-                                    <h3 class="mb-0">Member List Generation by Station and Radio</h3>
+                                    <h3 class="mb-0">Expired Certifications</h3>
                                 </div>
                                 <div class="card-body">
                                   <form>
 
                                   <div>
-                                  <label for="strd">Radio #</label>
+                                  <label for="strd">Certification ID</label>
                                   <select v-model="radiostation.radioNumber">
                                     <!-- <select v-model="selectedMember"> -->
                                     <option v-for="radio in radios" v-bind:value="radio.radioNumber">
@@ -98,15 +98,7 @@
                                   </select>
                                 </div>
 
-                                  <div>
-                                  <label for="strd">Station #</label>
-                                  <select v-model="radiostation.stationNumber">
-                                    <!-- <select v-model="selectedCertification"> -->
-                                    <option v-for="station in stations" v-bind:value="station.stationNumber">
-                                      {{ station.stationNumber}}
-                                    </option>
-                                  </select>
-                                </div>
+
 
                                 <div>
                                   <div class="form-group">

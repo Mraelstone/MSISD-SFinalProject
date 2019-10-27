@@ -4,19 +4,14 @@ use Ramsey\Uuid\Uuid;
 
 // Step 1: Get a datase connection from our help class
 $db = DbConnection::getConnection();
-$guid = Uuid::uuid4()->toString();
 // Step 2: Prepare & run the query
-$stmt = $db->prepare(
-  'INSERT INTO Member
-  (memberGuid, firstName, lastName, sexAtBirth, email, dob, addrStreet, addrCity, addrState, addrZipcode, workPhone, mobilePhone, radioNumber, startDate, stationNumber, isActive, memberPosition)
-  VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+$stmt = $db->prepare(('UPDATE Member SET firstName=?, lastName=?, sexAtBirth=?, email=?, dob=?, addrStreet=?, addrCity=?, addrState=?, addrZipcode=?, workPhone=?, mobilePhone=?, startDate=?, radioNumber=?, stationNumber=?, isActive=?, memberPosition=? WHERE memberGuid=?')
 );
 
 
 
 //How to prevent SQL injections:
 $stmt->execute([
-  $guid,
   $_POST['firstName'],
   $_POST['lastName'],
   $_POST['sexAtBirth'],
@@ -32,7 +27,8 @@ $stmt->execute([
   $_POST['radioNumber'],
   $_POST['stationNumber'],
   $_POST['isActive'],
-  $_POST['memberPosition']
+  $_POST['memberPosition'],
+  $_POST['memberGuid']
 ]);
 
 //Global Variables: can introduce bad security practices (SQL injection ex.)

@@ -7,9 +7,9 @@ $db = DbConnection::getConnection();
 $guid = Uuid::uuid4()->toString();
 // Step 2: Prepare & run the query
 $stmt = $db->prepare(
-  'INSERT INTO Member
-  (memberGuid, firstName, lastName, sexAtBirth, email, dob, addrStreet, addrCity, addrState, addrZipcode, workPhone, mobilePhone, radioNumber, startDate, stationNumber, isActive, memberPosition)
-  VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+  'INSERT INTO Certification
+  (certificationGuid, certificationName, expirationPeriod, agency)
+  VALUES(?,?,?,?)'
 );
 
 
@@ -17,22 +17,9 @@ $stmt = $db->prepare(
 //How to prevent SQL injections:
 $stmt->execute([
   $guid,
-  $_POST['firstName'],
-  $_POST['lastName'],
-  $_POST['sexAtBirth'],
-  $_POST['email'],
-  $_POST['dob'],
-  $_POST['addrStreet'],
-  $_POST['addrCity'],
-  $_POST['addrState'],
-  $_POST['addrZipcode'],
-  $_POST['workPhone'],
-  $_POST['mobilePhone'],
-  $_POST['startDate'],
-  $_POST['radioNumber'],
-  $_POST['stationNumber'],
-  $_POST['isActive'],
-  $_POST['memberPosition']
+  $_POST['certificationName'],
+  $_POST['expirationPeriod'],
+  $_POST['agency']
 ]);
 
 //Global Variables: can introduce bad security practices (SQL injection ex.)
@@ -47,5 +34,5 @@ $stmt->execute([
 // Step 4: Output
 header('HTTP/1.1 303 See Other');
 //303 status code says redirect with a Get
-header('Location: ../members/');
+header('Location: ../certifications/');
 //tells you where the other place is you're sending it to

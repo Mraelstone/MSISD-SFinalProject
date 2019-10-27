@@ -73,82 +73,52 @@
             </nav>
         </div>
 
+            <div class="container py-5" id="assignMemCertApp">
+              <div class="row">
+                <div class="col-md-12">
+              <!--    <h2 class="text-center mb-5">Bootstrap 4 Forms</h2> -->
+            <!-- form card reset password -->
+                    <div class="card card-outline-secondary">
+                        <div class="card-header">
+                            <h3 class="mb-0">Assign Certifications to Members</h3>
+                        </div>
+                        <div class="card-body">
+                          <form>
 
+                          <div>
+                          <label for="assMemCert">Member ID</label>
+                          <select v-model="recordCertified.member">
+                            <!-- <select v-model="selectedMember"> -->
+                            <option v-for="member in recordMember" v-bind:value="member.memberGuid">
+                              {{ member.memberGuid }}
+                            </option>
+                          </select>
+                        </div>
 
+                          <div>
+                          <label for="assMemCert">Certification ID</label>
+                          <select v-model="recordCertified.certification">
+                            <!-- <select v-model="selectedCertification"> -->
+                            <option v-for="certification in recordCertification" v-bind:value="certification.certificationGuid">
+                              {{ certification.certificationGuid }}
+                            </option>
+                          </select>
+                        </div>
 
-                    <div class="container py-5" id="stationradio">
-                      <div class="row">
-                        <div class="col-md-12">
-                      <!--    <h2 class="text-center mb-5">Bootstrap 4 Forms</h2> -->
-                    <!-- form card reset password -->
-                            <div class="card card-outline-secondary">
-                                <div class="card-header">
-                                    <h3 class="mb-0">Member List Generation by Station and Radio</h3>
-                                </div>
-                                <div class="card-body">
-                                  <form>
-
-                                  <div>
-                                  <label for="strd">Radio #</label>
-                                  <select v-model="radiostation.radioNumber">
-                                    <!-- <select v-model="selectedMember"> -->
-                                    <option v-for="radio in radios" v-bind:value="radio.radioNumber">
-                                      {{ radio.radioNumber}}
-                                    </option>
-                                  </select>
-                                </div>
-
-                                  <div>
-                                  <label for="strd">Station #</label>
-                                  <select v-model="radiostation.stationNumber">
-                                    <!-- <select v-model="selectedCertification"> -->
-                                    <option v-for="station in stations" v-bind:value="station.stationNumber">
-                                      {{ station.stationNumber}}
-                                    </option>
-                                  </select>
-                                </div>
-
-                                <div>
-                                  <div class="form-group">
-                                      <button @click="sendSelected()" class="btn btn-danger btn-lg float-right">Get List</button>
-                                  </div>
-                                </div>
-                                  </form>
-                                </div>
-
-
-                                <div>
-                                <table class="table table-sm table-hover">
-                              <thead>
-                                <tr>
-                                  <th>Member GUID</th>
-                                  <th>First Name</th>
-                                  <th>Last Name</th>
-                                  <th>Radio #</th>
-                                  <th>Station #</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr v-for="m in members">
-                                  <td>{{ m.memberGuid }}</td>
-                                  <td>{{ m.firstName }}</td>
-                                  <td>{{ m.lastName }}</td>
-                                  <td>{{ m.radioNumber }}</td>
-                                  <td>{{ m.stationNumber }}</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-
-
-
-                            </div>
+                        <div>
+                          <label for="assMemCert">Date Assigned</label>
+                          <input type="date" class="form-control" id="assMemCert" required="" v-model="recordCertified.assignedDate">
+                          <div class="form-group">
+                              <button @click="handleSubmit()" class="btn btn-danger btn-lg float-right">Assign</button>
                           </div>
                         </div>
-                      </div>
 
-
-
+                          </form>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
 
               <div class="container-fluid text-center py-4 bg-dark text-white-50">
@@ -159,6 +129,6 @@
                   </footer>
               </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="js/stationradio.app.js"></script>
+  <script src="js/assign.app.js"></script>
 </body>
 </html>

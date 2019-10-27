@@ -4,35 +4,16 @@ use Ramsey\Uuid\Uuid;
 
 // Step 1: Get a datase connection from our help class
 $db = DbConnection::getConnection();
-$guid = Uuid::uuid4()->toString();
 // Step 2: Prepare & run the query
 $stmt = $db->prepare(
-  'INSERT INTO Member
-  (memberGuid, firstName, lastName, sexAtBirth, email, dob, addrStreet, addrCity, addrState, addrZipcode, workPhone, mobilePhone, radioNumber, startDate, stationNumber, isActive, memberPosition)
-  VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+  'DELETE FROM Member WHERE memberGuid=?'
 );
 
 
 
 //How to prevent SQL injections:
 $stmt->execute([
-  $guid,
-  $_POST['firstName'],
-  $_POST['lastName'],
-  $_POST['sexAtBirth'],
-  $_POST['email'],
-  $_POST['dob'],
-  $_POST['addrStreet'],
-  $_POST['addrCity'],
-  $_POST['addrState'],
-  $_POST['addrZipcode'],
-  $_POST['workPhone'],
-  $_POST['mobilePhone'],
-  $_POST['startDate'],
-  $_POST['radioNumber'],
-  $_POST['stationNumber'],
-  $_POST['isActive'],
-  $_POST['memberPosition']
+  $_POST['memberGuid']
 ]);
 
 //Global Variables: can introduce bad security practices (SQL injection ex.)
