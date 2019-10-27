@@ -75,7 +75,7 @@
             </nav>
         </div>
 
-            <div class="container py-5">
+            <div class="container py-5" id="assignMemCertApp">
               <div class="row">
                 <div class="col-md-12">
               <!--    <h2 class="text-center mb-5">Bootstrap 4 Forms</h2> -->
@@ -86,24 +86,34 @@
                         </div>
                         <div class="card-body">
                           <form>
-                          <label for="assMemCert">Member ID</label>
 
-                          <select v-model="selected">
-                            <option v-for="member in recordMember" v-bind:value="memberGuid">
-                              {{ member }}
+                          <div>
+                          <label for="assMemCert">Member ID</label>
+                          <select v-model="recordCertified.member">
+                            <!-- <select v-model="selectedMember"> -->
+                            <option v-for="member in recordMember" v-bind:value="member.memberGuid">
+                              {{ member.memberGuid }}
                             </option>
                           </select>
+                        </div>
 
+                          <div>
                           <label for="assMemCert">Certification ID</label>
-                          <select class="form-control" id="assMemCert" name='certification' @click="getCertifications()">
+                          <select v-model="recordCertified.certification">
+                            <!-- <select v-model="selectedCertification"> -->
+                            <option v-for="certification in recordCertification" v-bind:value="certification.certificationGuid">
+                              {{ certification.certificationGuid }}
+                            </option>
                           </select>
+                        </div>
 
+                        <div>
                           <label for="assMemCert">Date Assigned</label>
-                          <input type="date" class="form-control" id="assMemCert" required="">
-
+                          <input type="date" class="form-control" id="assMemCert" required="" v-model="recordCertified.assignedDate">
                           <div class="form-group">
-                              <button type="submit" class="btn btn-danger btn-lg float-right">Assign</button>
+                              <button @click="handleSubmit()" class="btn btn-danger btn-lg float-right">Assign</button>
                           </div>
+                        </div>
 
                           </form>
                         </div>
@@ -121,5 +131,6 @@
                   </footer>
               </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/assign.app.js"></script>
 </body>
 </html>
