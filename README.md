@@ -1,16 +1,12 @@
-# MSIS Project
-This repo is for an in-class project in the MSIS program.
+# MSIS Final Project
+This repo is for the final project in the MSIS program.
 
-## Our Project: Build a hospital triage system
+## Our Project: Build an app for Oconee Fire Department
 
-For simplicity, assume that patient data is stored (mostly) in another system.
-Only basic identifying information will be in this system: Name, DOB, sex at
-birth, and a patient GUID to match the record to the other system.
+We are Team 6 (BigRed0100) building a web app for Oconee Fire Department to help manage their firefighters and their certifications among other things.
 
-When a patient visits, a single text field for symptom description is
-sufficient. The patient is assigned a triage priority, then waits for an
-doctor to become available. Patients are seen in priority order.
+The technology stack included HTML/CSS/Javascript for the front end, Apache for the web server, PHP for the application layer and MySQL for the database. The database is hosted on Amazon RDS and the application is hosted on an Amazon EC2 instance.
 
-When a doctor is finished treating a patient, s/he assigns the completion reason
-(one of discharged, admitted, deceased), and the visit is stored in a
-historical log.
+Linked here is the EC2 server that the application is hosted on: ec2-52-87-43-243.compute-1.amazonaws.com 
+
+Thanks and enjoy!
