@@ -46,6 +46,7 @@ var memberRecordsApp = new Vue({
     .then( response => response.json() )
     .then( json => {memberRecordsApp.members = json})
     .catch(err => {
+      alert('There is a delete error: This violates the foreign key constraint' )
       console.error('MEMBER DELETION ERROR: ')
       console.error(err);
     })

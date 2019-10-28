@@ -52,6 +52,7 @@ var certificationRecordsApp = new Vue({
     .then( response => response.json() )
     .then( json => {certificationRecordsApp.certifications = json})
     .catch(err => {
+      alert('There is a delete error: This violates the foreign key constraint' )
       console.error('CERTIFICATION DELETION ERROR: ')
       console.error(err);
     })
